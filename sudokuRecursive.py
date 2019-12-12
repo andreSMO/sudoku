@@ -204,7 +204,7 @@ def start_sudoku(grid):
         print("Some error in the sudoku solver")
     
 #This procedure solves the Sudoku one step at the time
-def sudoku_solver(grid,i=0,j=0):
+def sudoku_solver(grid):
     global backtrack
     #find next empty cell to fill
     i,j = find_next_cell(grid)
@@ -213,7 +213,7 @@ def sudoku_solver(grid,i=0,j=0):
     for e in range(1,10):
         if is_valid(grid,i,j,e):
             grid[i,j] = e
-            if sudoku_solver(grid,i,j):
+            if sudoku_solver(grid):
                 return True
             #failed attempt
             #undo current cell for back track
